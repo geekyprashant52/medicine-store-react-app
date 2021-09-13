@@ -1,0 +1,191 @@
+.viewTeamWrapper {
+  margin-top: 100px;
+}
+
+.viewTeamCardWrapper {
+  margin: 20px;
+  border: none;
+  padding: 15px;
+  background-color: white;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.viewTeamCardWrapper h2 {
+  color: var(--primary_color);
+  font-size: 28px;
+}
+
+.viewTeamCardWrapper h3 {
+  font-weight: 600;
+  color: grey;
+}
+.viewTeamCardWrapper h3 span {
+  font-weight: 700;
+  color: black;
+}
+
+.inventoryBtnWrapper {
+  margin-top: 20px;
+}
+
+.inventoryBtnWrapper button {
+  padding: 3px 15px;
+  outline: none;
+  border-radius: 5px;
+  font-size: 16px;
+  border: none;
+  font-family: "Open Sans", sans-serif;
+  background-color: var(--primary_color);
+  color: white;
+  margin-right: 10px;
+}
+
+/*OVERLAY Styles */
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+  overflow-y: auto;
+  z-index: 200;
+}
+.header-relative {
+  display: none;
+}
+.overlay_visible {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  overflow-y: auto;
+  z-index: 200;
+  visibility: visible;
+  opacity: 1;
+}
+
+.overLayCardWrapper {
+  width: 80%;
+  padding: 15px;
+  background: #fff;
+  border-radius: 5px;
+  position: relative;
+  margin: 0 auto;
+  transition: all 1s;
+  margin-top: 40px;
+  margin-bottom: 100px;
+  padding-top: 30px;
+}
+
+.inputOverLayWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  margin-bottom: 20px;
+}
+
+.inputOverLayWrapper p {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.inputOverLayWrapper input {
+  outline: none;
+  border: 1px solid var(--primary_color);
+  padding: 5px;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* OVERLAY ENDS HERE */
+
+.closeIconWrapper {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 5px;
+  right: 0;
+}
+
+.closeIconWrapper i {
+  font-size: 30px;
+  color: var(--primary_color);
+}
+
+.selectOptionsWrapper {
+  outline: none;
+  border: 1px solid var(--primary_color);
+  padding: 5px;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.inputDivWrapper {
+  margin-top: 20px;
+}
+
+.inventoryBtnWrapper {
+  margin-top: 20px;
+}
+
+.inventoryBtnWrapper button {
+  padding: 3px 15px;
+  outline: none;
+  border-radius: 5px;
+  font-size: 16px;
+  border: none;
+  font-family: "Open Sans", sans-serif;
+  background-color: var(--primary_color);
+  color: white;
+  margin-right: 10px;
+}
+
+@media (min-width: 480px) {
+  .newviewTeamWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .viewTeamCardWrapper {
+    width: 43%;
+  }
+
+  .overLayCardWrapper {
+    width: 50%;
+    padding: 15px 30px;
+  }
+  .inputOverLayWrapper input {
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 770px) {
+  .newviewTeamWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .viewTeamCardWrapper {
+    width: 43%;
+  }
+  .overLayCardWrapper {
+    width: 50%;
+    padding: 15px 30px;
+  }
+  .inputOverLayWrapper input {
+    width: 70%;
+    margin: 0 auto;
+  }
+}

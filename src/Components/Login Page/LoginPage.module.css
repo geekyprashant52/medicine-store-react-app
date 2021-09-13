@@ -1,0 +1,52 @@
+.LoginPageWrapper {
+  margin-top: 120px;
+  padding: 10px;
+}
+
+.formWrapper {
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 12px #ccc;
+}
+
+.inputWrapper p {
+  display: inline-block;
+  text-align: left;
+  color: var(--primary_color);
+}
+
+.inputWrapper input {
+  padding: 5px;
+  font-size: 16px;
+  outline: none;
+  border: 2px solid var(--primary_color);
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+}
+
+.loginBtnWrapper button {
+  padding: 5px 15px;
+  margin-top: 15px;
+  outline: none;
+  border: 1px solid var(--primary_color);
+  font-family: "Open Sans", sans-serif;
+}
+
+@media (min-width: 480px) {
+  .formWrapper {
+    width: 70%;
+  }
+}
+@media (min-width: 770px) {
+  .formWrapper {
+    width: 40%;
+  }
+}
