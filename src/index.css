@@ -19,3 +19,7 @@ body {
 code {
   font-family: "Open Sans", sans-serif;
 }
+
+.error_txt {
+  color: red;
+}

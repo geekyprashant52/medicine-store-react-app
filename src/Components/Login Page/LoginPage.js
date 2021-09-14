@@ -65,6 +65,7 @@ export const LoginPage = (props) => {
   const [userName, setuserName] = useState("");
   const [password, setpassword] = useState("");
   const history = useHistory();
+  const [isError, setisError] = useState(false);
 
   const changeLoginUser = (userType) => {
     props.innerChangeLoginUser(userType);
@@ -79,6 +80,7 @@ export const LoginPage = (props) => {
       const user = "admin";
       changeLoginUser(user);
       history.push(`/homepage/${user}`);
+      setisError(false);
     } else {
       if (
         userName.trim().toLowerCase() === "test-sales" &&
@@ -87,6 +89,9 @@ export const LoginPage = (props) => {
         const user = "sales";
         changeLoginUser(user);
         history.push(`/homepage/${user}`);
+        setisError(false);
+      } else {
+        setisError(true);
       }
       // he is sales executive
     }
@@ -111,6 +116,7 @@ export const LoginPage = (props) => {
               onChange={(e) => setpassword(e.target.value)}
             />
           </div>
+          {isError ? <ShowErrorText /> : ""}
           <div className={classes.loginBtnWrapper}>
             <button type="submit" onClick={handleFormSubmit}>
               Login
@@ -127,5 +133,13 @@ export const LoginPage = (props) => {
 const mapDispatchToProps = (dispach) => ({
   innerChangeLoginUser: (payload) => dispach(changeLoginUserFromRedux(payload)),
 });
+
+const ShowErrorText = () => {
+  return (
+    <div>
+      <p className="error_txt">Please enter valid Data</p>
+    </div>
+  );
+};
 
 export default connect(null, mapDispatchToProps)(LoginPage);

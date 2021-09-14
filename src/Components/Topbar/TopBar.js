@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { changeLoginUserFromRedux } from "../../Redux Files/Actions/changeLoginUser";
 import classes from "./TopBar.module.css";
+import edyodaLogo from "./edyoda-logo.png";
 
 export const TopBar = (props) => {
   const { userPerson } = props;
@@ -30,6 +31,7 @@ export const TopBar = (props) => {
           Log Out
         </button>
       </div>
+      <img className={classes.edyodaLogo} src={edyodaLogo} alt="logo" />
     </div>
   );
 };

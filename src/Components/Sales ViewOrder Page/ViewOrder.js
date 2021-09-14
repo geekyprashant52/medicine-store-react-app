@@ -104,6 +104,7 @@ export const ViewOrder = (props) => {
     });
   }
 
+  const [isError, setisError] = useState(false);
   const [overlayClass, setoverlayClass] = useState([classes.overlay]);
   const [isoverlayOpen, setisoverlayOpen] = useState(false);
   const [tempDataObj, settempDataObj] = useState({});
@@ -131,10 +132,12 @@ export const ViewOrder = (props) => {
       customerContactin.toString().trim().length >= 10 &&
       orderArrin.length > 0
     ) {
+      setisError(false);
       handleAddOrderData(idin, customeNamein, customerContactin, orderArrin);
       setisoverlayOpen(false);
       setoverlayClass([classes.overlay]);
     } else {
+      setisError(true);
       console.log("Invalid Data");
     }
   };
@@ -279,6 +282,7 @@ export const ViewOrder = (props) => {
                 </table>
               )}
             </div>
+            {isError ? <ShowErrorText /> : ""}
             <div className={classes.inventoryBtnWrapper}>
               <button
                 onClick={() => {
@@ -297,6 +301,7 @@ export const ViewOrder = (props) => {
               <div
                 className={classes.closeIconWrapper}
                 onClick={() => {
+                  setisError(false);
                   changeOverLayClass();
                 }}
               >
@@ -400,5 +405,13 @@ export const ViewOrder = (props) => {
 const mapStateToProps = (state) => ({
   userType: state.user,
 });
+
+const ShowErrorText = () => {
+  return (
+    <div>
+      <p className="error_txt">Please enter valid Data</p>
+    </div>
+  );
+};
 
 export default connect(mapStateToProps, null)(ViewOrder);

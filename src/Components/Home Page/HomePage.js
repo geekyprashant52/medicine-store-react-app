@@ -34,7 +34,7 @@ export default function HomePage() {
   }
 
   //   console.log(medicineArray);
-
+  const [isError, setisError] = useState(false);
   const userType = useParams().user;
   const [isoverlayOpen, setisoverlayOpen] = useState(false);
   const [overlayClass, setoverlayClass] = useState([classes.overlay]);
@@ -53,6 +53,7 @@ export default function HomePage() {
         medPrice > 0,
         medDiscount > 0 && medDiscount <= 100)
       ) {
+        setisError(false);
         setisoverlayOpen(false);
         setoverlayClass([classes.overlay]);
         //console.log("valid Data");
@@ -67,6 +68,7 @@ export default function HomePage() {
           medDiscount
         );
       } else {
+        setisError(true);
         console.log("invalid Data");
       }
     } else {
@@ -85,6 +87,7 @@ export default function HomePage() {
         exepassword.toString().trim().length > 6 &&
         exeexperience > 0
       ) {
+        setisError(false);
         setisoverlayOpen2(false);
         setoverlayClass2([classes.overlay]);
         let id = "id" + new Date().getTime();
@@ -99,6 +102,7 @@ export default function HomePage() {
           exepassword
         );
       } else {
+        setisError(true);
         console.log("invalid Data" + exedob);
       }
     } else {
@@ -151,12 +155,14 @@ export default function HomePage() {
                 type="number"
               />
             </div>
+            {isError ? <ShowErrorText /> : ""}
             <div className={classes.addMedicineWrapper}>
               <button onClick={changeOverLayClass}>Add Medicine</button>
             </div>
             <div
               className={classes.closeIconWrapper}
               onClick={() => {
+                setisError(false);
                 setisoverlayOpen(false);
                 setoverlayClass([classes.overlay]);
               }}
@@ -225,6 +231,7 @@ export default function HomePage() {
                 onChange={(e) => (exepassword = e.target.value)}
               />
             </div>
+            {isError ? <ShowErrorText /> : ""}
             <div className={classes.addMedicineWrapper}>
               <button onClick={changeOverLayClass2}>Add Sales Executive</button>
             </div>
@@ -232,6 +239,7 @@ export default function HomePage() {
             <div
               className={classes.closeIconWrapper}
               onClick={() => {
+                setisError(false);
                 setisoverlayOpen2(false);
                 setoverlayClass2([classes.overlay]);
               }}
@@ -262,11 +270,12 @@ export default function HomePage() {
           inputordermedCustomerNum,
           inputOrderDataRows
         );
-
+        setisError(false);
         setisoverlayOpen3(false);
         setoverlayClass3([classes.overlay]);
         console.log("valid Data");
       } else {
+        setisError(true);
         console.log("Invalid Data");
       }
     } else {
@@ -413,6 +422,7 @@ export default function HomePage() {
                 </table>
               )}
             </div>
+            {isError ? <ShowErrorText /> : ""}
             <div className={classes.inventoryBtnWrapper}>
               <button
                 onClick={() =>
@@ -429,6 +439,7 @@ export default function HomePage() {
             <div
               className={classes.closeIconWrapper}
               onClick={() => {
+                setisError(false);
                 setisoverlayOpen3(false);
                 setoverlayClass3([classes.overlay]);
               }}
@@ -495,3 +506,11 @@ export default function HomePage() {
     </div>
   );
 }
+
+const ShowErrorText = () => {
+  return (
+    <div>
+      <p className="error_txt">Please enter valid Data</p>
+    </div>
+  );
+};

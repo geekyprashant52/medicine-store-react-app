@@ -19,6 +19,7 @@ export default function AdminInventory() {
   }
 
   //all useStates
+  const [isError, setisError] = useState(false);
   const [overlayClass, setoverlayClass] = useState([classes.overlay]);
   const [isoverlayOpen, setisoverlayOpen] = useState(false);
   const [tempDataObj, settempDataObj] = useState({});
@@ -43,9 +44,11 @@ export default function AdminInventory() {
       discount > 0 &&
       discount <= 100
     ) {
+      setisError(false);
       handleCartClick(id, name, manufactureName, price, stock, discount);
       changeOverLayClass();
     } else {
+      setisError(true);
       console.log("invalid Data");
     }
   };
@@ -103,6 +106,7 @@ export default function AdminInventory() {
                   onChange={(e) => setinnerMedDiscount(e.target.value)}
                 />
               </div>
+              {isError ? <ShowErrorText /> : ""}
               <div className={classes.inventoryBtnWrapper}>
                 <button
                   onClick={() =>
@@ -122,6 +126,7 @@ export default function AdminInventory() {
               <div
                 className={classes.closeIconWrapper}
                 onClick={() => {
+                  setisError(false);
                   setisoverlayOpen(false);
                   setoverlayClass([classes.overlay]);
                 }}
@@ -186,3 +191,11 @@ export default function AdminInventory() {
     </div>
   );
 }
+
+const ShowErrorText = () => {
+  return (
+    <div>
+      <p className="error_txt">Please enter valid Data</p>
+    </div>
+  );
+};
